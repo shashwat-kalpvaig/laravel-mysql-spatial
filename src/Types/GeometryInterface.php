@@ -22,6 +22,7 @@ interface GeometryInterface
     /**
      * @return T
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize();
 
     public function getSrid(): int;
