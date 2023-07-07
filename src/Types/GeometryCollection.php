@@ -13,7 +13,7 @@ use IteratorAggregate;
 use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 
 /**
- * @template G
+ * @template GeoType of GeometryInterface
  *
  * @implements GeometryInterface<FeatureCollection>
  */
@@ -32,12 +32,12 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
     /**
      * The items contained in the spatial collection.
      *
-     * @var G[]
+     * @var GeoType[]
      */
     protected array $items = [];
 
     /**
-     * @param  GeometryInterface[]  $geometries
+     * @param  GeoType[]  $geometries
      *
      * @throws InvalidArgumentException
      */
@@ -51,7 +51,7 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
     }
 
     /**
-     * @return G[]
+     * @return GeoType[]
      */
     public function getGeometries(): array
     {
@@ -75,12 +75,11 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
         }
 
         $geometry_strings = preg_split('/,\s*(?=[A-Za-z])/', $wktArgument);
+        if ($geometry_strings === false) {
+            return new static([]);
+        }
 
-        return new static(array_map(function ($geometry_string) {
-            $klass = Geometry::getWKTClass($geometry_string);
-
-            return call_user_func($klass.'::fromWKT', $geometry_string);
-        }, $geometry_strings), $srid);
+        return new static(array_map(fn ($geometry_string) => call_user_func([Geometry::getWKTClass($geometry_string), 'fromWKT'], $geometry_string), $geometry_strings), $srid);
     }
 
     public function toArray()
@@ -159,6 +158,8 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
 
     /**
      * Checks whether the items are valid to create this collection.
+     *
+     * @param  GeoType[]  $items
      */
     protected function validateItems(array $items): void
     {
@@ -172,7 +173,7 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
     /**
      * Checks whether the array has enough items to generate a valid WKT.
      *
-     * @param  GeometryInterface[]  $items
+     * @param  GeoType[]  $items
      *
      * @see $minimumCollectionItems
      */

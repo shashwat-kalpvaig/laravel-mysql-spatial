@@ -5,6 +5,7 @@ namespace Limenet\LaravelMysqlSpatial\Types;
 use GeoJson\GeoJson;
 use GeoJson\Geometry\MultiLineString as GeoJsonMultiLineString;
 use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
+use RuntimeException;
 
 /**
  * @implements GeometryInterface<LineString>
@@ -36,6 +37,11 @@ class MultiLineString extends GeometryCollection implements GeometryInterface
     public static function fromString(string $wktArgument, int $srid = 0): static
     {
         $str = preg_split('/\)\s*,\s*\(/', substr(trim($wktArgument), 1, -1));
+
+        if ($str === false) {
+            throw new RuntimeException();
+        }
+
         $lineStrings = array_map(fn ($data) => LineString::fromString($data), $str);
 
         return new static($lineStrings, $srid);

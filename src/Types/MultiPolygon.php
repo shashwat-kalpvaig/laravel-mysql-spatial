@@ -5,6 +5,7 @@ namespace Limenet\LaravelMysqlSpatial\Types;
 use GeoJson\GeoJson;
 use GeoJson\Geometry\MultiPolygon as GeoJsonMultiPolygon;
 use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
+use RuntimeException;
 
 /**
  * @implements GeometryInterface<MultiPolygon>
@@ -36,6 +37,11 @@ class MultiPolygon extends GeometryCollection implements GeometryInterface
     public static function fromString(string $wktArgument, int $srid = 0): static
     {
         $parts = preg_split('/(\)\s*\)\s*,\s*\(\s*\()/', $wktArgument, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+        if ($parts === false) {
+            throw new RuntimeException();
+        }
+
         $polygons = static::assembleParts($parts);
 
         return new static(array_map(fn ($polygonString) => Polygon::fromString($polygonString), $polygons), $srid);
