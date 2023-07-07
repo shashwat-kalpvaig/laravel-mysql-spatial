@@ -1,13 +1,13 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Doctrine;
+namespace Limenet\LaravelMysqlSpatial\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 
 class GeometryCollection extends Type
 {
-    const GEOMETRYCOLLECTION = 'geometrycollection';
+    final public const GEOMETRYCOLLECTION = 'geometrycollection';
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {

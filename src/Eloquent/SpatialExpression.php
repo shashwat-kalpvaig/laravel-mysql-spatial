@@ -1,26 +1,20 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Eloquent;
+namespace Limenet\LaravelMysqlSpatial\Eloquent;
 
-use Grimzy\LaravelMysqlSpatial\Types\Geometry;
-use Grimzy\LaravelMysqlSpatial\Types\GeometryInterface;
 use Illuminate\Database\Grammar;
 use Illuminate\Database\Query\Expression;
+use Limenet\LaravelMysqlSpatial\Types\Geometry;
+use Limenet\LaravelMysqlSpatial\Types\GeometryInterface;
 
 class SpatialExpression extends Expression
 {
     /**
-     * @var Geometry|GeometryInterface
-     */
-    protected $value;
-
-    /**
      * @param  Geometry|GeometryInterface  $value
      * @return void
      */
-    public function __construct($value)
+    public function __construct(protected $value)
     {
-        $this->value = $value;
     }
 
     public function getValue(Grammar $grammar)

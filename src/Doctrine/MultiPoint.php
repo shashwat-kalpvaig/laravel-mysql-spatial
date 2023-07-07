@@ -1,13 +1,13 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Doctrine;
+namespace Limenet\LaravelMysqlSpatial\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 
 class MultiPoint extends Type
 {
-    const MULTIPOINT = 'multipoint';
+    final public const MULTIPOINT = 'multipoint';
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {

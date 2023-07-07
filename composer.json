@@ -1,13 +1,15 @@
 {
-    "name": "grimzy/laravel-mysql-spatial",
+    "name": "limenet/laravel-mysql-spatial",
     "description": "MySQL spatial data types extension for Laravel.",
-    "homepage": "https://github.com/grimzy/laravel-mysql-spatial",
+    "homepage": "https://github.com/limenet/laravel-mysql-spatial",
     "scripts": {
         "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage",
-        "format": "vendor/bin/pint"
+        "format": "vendor/bin/pint",
+        "post-update-cmd": "@composer bump -D",
+        "rector": "./vendor/bin/rector process"
     },
     "type": "library",
     "license": "MIT",
@@ -15,6 +17,10 @@
         {
             "name": "Joseph Estefane",
             "email": "estefanejoe@gmail.com"
+        },
+        {
+            "name": "Linus Metzler",
+            "email": "hi@linusmetzler.me"
         }
     ],
     "require": {
@@ -29,39 +35,40 @@
     },
     "conflict": {},
     "require-dev": {
-        "laravel/pint": "^1.6",
-        "laravel/laravel": "^10.0.4",
+        "driftingly/rector-laravel": "^0.21.0",
         "laravel/browser-kit-testing": "^7.0",
-        "mockery/mockery": "^1.5.1",
-        "nunomaduro/collision": "^7.1.0",
-        "nunomaduro/larastan": "^2.5.1",
-        "orchestra/testbench": "^8.0.8",
-        "phpstan/extension-installer": "^1.2",
-        "phpstan/phpstan-deprecation-rules": "^1.1.2",
-        "phpstan/phpstan-phpunit": "^1.3.10",
-        "phpunit/phpunit": "^10.0.15"
+        "laravel/laravel": "^10.2.4",
+        "laravel/pint": "^1.10.3",
+        "mockery/mockery": "^1.6.2",
+        "nunomaduro/collision": "^7.7.0",
+        "nunomaduro/larastan": "^2.6.3",
+        "orchestra/testbench": "^8.5.9",
+        "phpstan/extension-installer": "^1.3.1",
+        "phpstan/phpstan-deprecation-rules": "^1.1.3",
+        "phpstan/phpstan-phpunit": "^1.3.13",
+        "phpunit/phpunit": "^10.2.3",
+        "rector/rector": "^0.17.2"
     },
     "autoload": {
         "psr-4": {
-            "Grimzy\\LaravelMysqlSpatial\\": "src"
+            "Limenet\\LaravelMysqlSpatial\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Grimzy\\LaravelMysqlSpatial\\Tests\\": "tests"
+            "Limenet\\LaravelMysqlSpatial\\Tests\\": "tests"
         }
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true,
             "phpstan/extension-installer": true
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Grimzy\\LaravelMysqlSpatial\\SpatialServiceProvider"
+                "Limenet\\LaravelMysqlSpatial\\SpatialServiceProvider"
             ]
         }
     },

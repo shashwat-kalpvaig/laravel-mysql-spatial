@@ -1,12 +1,13 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Types;
+namespace Limenet\LaravelMysqlSpatial\Types;
 
 use GeoIO\WKB\Parser\Parser;
 use GeoJson\Feature\Feature;
 use GeoJson\GeoJson;
-use Grimzy\LaravelMysqlSpatial\Exceptions\UnknownWKTTypeException;
 use Illuminate\Contracts\Support\Jsonable;
+use Limenet\LaravelMysqlSpatial\Exceptions\UnknownWKBException;
+use Limenet\LaravelMysqlSpatial\Exceptions\UnknownWKTTypeException;
 
 abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializable
 {
@@ -20,11 +21,8 @@ abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializabl
         7 => GeometryCollection::class,
     ];
 
-    protected int $srid;
-
-    public function __construct(int $srid = 0)
+    public function __construct(protected int $srid = 0)
     {
-        $this->srid = $srid;
     }
 
     public function getSrid(): int
@@ -45,10 +43,15 @@ abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializabl
         return substr($value, $left + 1, $right - $left - 1);
     }
 
-    /** @return class-string */
+    /** @return class-string<Geometry> */
     public static function getWKTClass(string $value): string
     {
         $left = strpos($value, '(');
+
+        if ($left === false) {
+            throw new UnknownWKTTypeException('Could not parse '.$value);
+        }
+
         $type = trim(substr($value, 0, $left));
 
         return match (strtoupper($type)) {
@@ -66,7 +69,13 @@ abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializabl
     public static function fromWKB(string $wkb): Geometry
     {
         $srid = substr($wkb, 0, 4);
-        $srid = unpack('L', $srid)[1];
+        $unpacked = unpack('L', $srid);
+
+        if ($unpacked === false) {
+            throw new UnknownWKBException($wkb);
+        }
+
+        $srid = $unpacked[1];
 
         $wkb = substr($wkb, 4);
         $parser = new Parser(new Factory());
@@ -91,7 +100,7 @@ abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializabl
     public static function fromJson(string|GeoJson $geoJson): self
     {
         if (is_string($geoJson)) {
-            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson));
+            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson, flags: JSON_THROW_ON_ERROR));
         }
 
         if ($geoJson->getType() === 'FeatureCollection') {
@@ -103,13 +112,13 @@ abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializabl
             $geoJson = $geoJson->getGeometry();
         }
 
-        $type = '\Grimzy\LaravelMysqlSpatial\Types\\'.$geoJson->getType();
+        $type = '\Limenet\LaravelMysqlSpatial\Types\\'.$geoJson?->getType();
 
         return $type::fromJson($geoJson);
     }
 
     public function toJson($options = 0)
     {
-        return json_encode($this, $options);
+        return json_encode($this, $options | JSON_THROW_ON_ERROR);
     }
 }

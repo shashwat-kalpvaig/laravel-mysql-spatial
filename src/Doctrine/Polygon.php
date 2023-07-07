@@ -1,13 +1,13 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Doctrine;
+namespace Limenet\LaravelMysqlSpatial\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 
 class Polygon extends Type
 {
-    const POLYGON = 'polygon';
+    final public const POLYGON = 'polygon';
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {

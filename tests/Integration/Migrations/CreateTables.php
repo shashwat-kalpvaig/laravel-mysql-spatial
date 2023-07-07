@@ -1,10 +1,10 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Tests\Integration\Migrations;
+namespace Limenet\LaravelMysqlSpatial\Tests\Integration\Migrations;
 
-use Grimzy\LaravelMysqlSpatial\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
+use Limenet\LaravelMysqlSpatial\Schema\Blueprint;
 
 class CreateTables extends Migration
 {

@@ -1,23 +1,23 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Types;
+namespace Limenet\LaravelMysqlSpatial\Types;
 
 use ArrayAccess;
 use ArrayIterator;
 use Countable;
 use GeoJson\Feature\FeatureCollection;
 use GeoJson\GeoJson;
-use Grimzy\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 use Illuminate\Contracts\Support\Arrayable;
 use InvalidArgumentException;
 use IteratorAggregate;
+use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 
 /**
- * @template G
+ * @template GeoType of GeometryInterface
  *
  * @implements GeometryInterface<FeatureCollection>
  */
-class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAccess, Arrayable, Countable, GeometryInterface
+class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAccess, Arrayable, Countable, GeometryInterface, \Stringable
 {
     /**
      * The minimum number of items required to create this collection.
@@ -32,12 +32,12 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
     /**
      * The items contained in the spatial collection.
      *
-     * @var G[]
+     * @var GeoType[]
      */
     protected array $items = [];
 
     /**
-     * @param  GeometryInterface[]  $geometries
+     * @param  GeoType[]  $geometries
      *
      * @throws InvalidArgumentException
      */
@@ -51,7 +51,7 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
     }
 
     /**
-     * @return G[]
+     * @return GeoType[]
      */
     public function getGeometries(): array
     {
@@ -63,24 +63,23 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
         return sprintf('GEOMETRYCOLLECTION(%s)', (string) $this);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return implode(',', array_map(fn (GeometryInterface $geometry) => $geometry->toWKT(), $this->items));
     }
 
     public static function fromString(string $wktArgument, int $srid = 0): static
     {
-        if (empty($wktArgument)) {
+        if ($wktArgument === '') {
             return new static([]);
         }
 
         $geometry_strings = preg_split('/,\s*(?=[A-Za-z])/', $wktArgument);
+        if ($geometry_strings === false) {
+            return new static([]);
+        }
 
-        return new static(array_map(function ($geometry_string) {
-            $klass = Geometry::getWKTClass($geometry_string);
-
-            return call_user_func($klass.'::fromWKT', $geometry_string);
-        }, $geometry_strings), $srid);
+        return new static(array_map(fn ($geometry_string) => call_user_func([Geometry::getWKTClass($geometry_string), 'fromWKT'], $geometry_string), $geometry_strings), $srid);
     }
 
     public function toArray()
@@ -128,11 +127,11 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
     public static function fromJson(string|GeoJson $geoJson): self
     {
         if (is_string($geoJson)) {
-            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson));
+            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson, flags: JSON_THROW_ON_ERROR));
         }
 
-        if (! is_a($geoJson, FeatureCollection::class)) {
-            throw new InvalidGeoJsonException('Expected '.FeatureCollection::class.', got '.get_class($geoJson));
+        if (! $geoJson instanceof FeatureCollection) {
+            throw new InvalidGeoJsonException(FeatureCollection::class, $geoJson::class);
         }
 
         $set = [];
@@ -159,6 +158,8 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
 
     /**
      * Checks whether the items are valid to create this collection.
+     *
+     * @param  GeoType[]  $items
      */
     protected function validateItems(array $items): void
     {
@@ -172,7 +173,7 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
     /**
      * Checks whether the array has enough items to generate a valid WKT.
      *
-     * @param  GeometryInterface[]  $items
+     * @param  GeoType[]  $items
      *
      * @see $minimumCollectionItems
      */
@@ -183,7 +184,7 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
 
             throw new InvalidArgumentException(sprintf(
                 '%s must contain at least %d %s',
-                get_class($this),
+                static::class,
                 $this->minimumCollectionItems,
                 $entries
             ));
@@ -201,7 +202,7 @@ class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAcc
         if (! $item instanceof $this->collectionItemType) {
             throw new InvalidArgumentException(sprintf(
                 '%s must be a collection of %s',
-                get_class($this),
+                static::class,
                 $this->collectionItemType
             ));
         }

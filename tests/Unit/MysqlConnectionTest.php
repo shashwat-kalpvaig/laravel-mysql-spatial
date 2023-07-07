@@ -1,9 +1,9 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Tests\Unit;
+namespace Limenet\LaravelMysqlSpatial\Tests\Unit;
 
-use Grimzy\LaravelMysqlSpatial\MysqlConnection;
-use Grimzy\LaravelMysqlSpatial\Schema\Builder;
+use Limenet\LaravelMysqlSpatial\MysqlConnection;
+use Limenet\LaravelMysqlSpatial\Schema\Builder;
 use PHPUnit\Framework\TestCase;
 
 class MysqlConnectionTest extends TestCase

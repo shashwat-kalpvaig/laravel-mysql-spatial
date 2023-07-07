@@ -1,10 +1,10 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Tests\Integration;
+namespace Limenet\LaravelMysqlSpatial\Tests\Integration;
 
-use Grimzy\LaravelMysqlSpatial\Tests\Integration\Migrations\CreateTables;
-use Grimzy\LaravelMysqlSpatial\Tests\Integration\Migrations\UpdateTables;
 use Illuminate\Support\Facades\DB;
+use Limenet\LaravelMysqlSpatial\Tests\Integration\Migrations\CreateTables;
+use Limenet\LaravelMysqlSpatial\Tests\Integration\Migrations\UpdateTables;
 
 class MigrationTest extends IntegrationBaseCase
 {

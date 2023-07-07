@@ -1,26 +1,19 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Types;
+namespace Limenet\LaravelMysqlSpatial\Types;
 
 use GeoJson\GeoJson;
 use GeoJson\Geometry\Point as GeoJsonPoint;
-use Grimzy\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
+use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 
 /**
  * @implements GeometryInterface<GeoJsonPoint>
  */
-class Point extends Geometry implements GeometryInterface
+class Point extends Geometry implements GeometryInterface, \Stringable
 {
-    protected float $lat;
-
-    protected float $lng;
-
-    public function __construct(float $lat, float $lng, ?int $srid = 0)
+    public function __construct(protected float $lat, protected float $lng, ?int $srid = 0)
     {
         parent::__construct((int) $srid);
-
-        $this->lat = $lat;
-        $this->lng = $lng;
     }
 
     public function getLat(): float
@@ -72,16 +65,16 @@ class Point extends Geometry implements GeometryInterface
 
     /**
      * @param $geoJson  \GeoJson\Feature\Feature|string
-     * @return \Grimzy\LaravelMysqlSpatial\Types\Point
+     * @return \Limenet\LaravelMysqlSpatial\Types\Point
      */
     public static function fromJson(string|GeoJson $geoJson): self
     {
         if (is_string($geoJson)) {
-            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson));
+            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson, flags: JSON_THROW_ON_ERROR));
         }
 
-        if (! is_a($geoJson, GeoJsonPoint::class)) {
-            throw new InvalidGeoJsonException('Expected '.GeoJsonPoint::class.', got '.get_class($geoJson));
+        if (! $geoJson instanceof GeoJsonPoint) {
+            throw new InvalidGeoJsonException(GeoJsonPoint::class, $geoJson::class);
         }
 
         $coordinates = $geoJson->getCoordinates();

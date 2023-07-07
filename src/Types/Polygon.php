@@ -1,10 +1,10 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Types;
+namespace Limenet\LaravelMysqlSpatial\Types;
 
 use GeoJson\GeoJson;
 use GeoJson\Geometry\Polygon as GeoJsonPolygon;
-use Grimzy\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
+use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 
 /**
  * @implements GeometryInterface<GeoJsonPolygon>
@@ -19,11 +19,11 @@ class Polygon extends MultiLineString implements GeometryInterface
     public static function fromJson(string|GeoJson $geoJson): self
     {
         if (is_string($geoJson)) {
-            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson));
+            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson, flags: JSON_THROW_ON_ERROR));
         }
 
-        if (! is_a($geoJson, GeoJsonPolygon::class)) {
-            throw new InvalidGeoJsonException('Expected '.GeoJsonPolygon::class.', got '.get_class($geoJson));
+        if (! $geoJson instanceof GeoJsonPolygon) {
+            throw new InvalidGeoJsonException(GeoJsonPolygon::class, $geoJson::class);
         }
 
         $set = [];

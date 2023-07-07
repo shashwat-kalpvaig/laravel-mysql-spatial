@@ -1,18 +1,18 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Tests\Unit\Eloquent;
+namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Eloquent;
 
-use Grimzy\LaravelMysqlSpatial\Eloquent\Builder;
-use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialExpression;
-use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
-use Grimzy\LaravelMysqlSpatial\MysqlConnection;
-use Grimzy\LaravelMysqlSpatial\Tests\Unit\BaseTestCase as UnitBaseTestCase;
-use Grimzy\LaravelMysqlSpatial\Types\LineString;
-use Grimzy\LaravelMysqlSpatial\Types\Point;
-use Grimzy\LaravelMysqlSpatial\Types\Polygon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\Query\Grammars\MySqlGrammar;
+use Limenet\LaravelMysqlSpatial\Eloquent\Builder;
+use Limenet\LaravelMysqlSpatial\Eloquent\SpatialExpression;
+use Limenet\LaravelMysqlSpatial\Eloquent\SpatialTrait;
+use Limenet\LaravelMysqlSpatial\MysqlConnection;
+use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase as UnitBaseTestCase;
+use Limenet\LaravelMysqlSpatial\Types\LineString;
+use Limenet\LaravelMysqlSpatial\Types\Point;
+use Limenet\LaravelMysqlSpatial\Types\Polygon;
 use Mockery;
 
 class BuilderTest extends UnitBaseTestCase

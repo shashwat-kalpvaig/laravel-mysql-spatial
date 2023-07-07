@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^PHPDoc type Grimzy\\\\LaravelMysqlSpatial\\\\Types\\\\GeometryInterface of property Grimzy\\\\LaravelMysqlSpatial\\\\Eloquent\\\\SpatialExpression\\:\\:\\$value is not covariant with PHPDoc type float\\|int\\|string of overridden property Illuminate\\\\Database\\\\Query\\\\Expression\\:\\:\\$value\\.$#"
+			message: "#^PHPDoc type Limenet\\\\LaravelMysqlSpatial\\\\Types\\\\GeometryInterface of property Limenet\\\\LaravelMysqlSpatial\\\\Eloquent\\\\SpatialExpression\\:\\:\\$value is not covariant with PHPDoc type float\\|int\\|string of overridden property Illuminate\\\\Database\\\\Query\\\\Expression\\:\\:\\$value\\.$#"
 			count: 1
 			path: src/Eloquent/SpatialExpression.php
 
@@ -11,12 +11,12 @@ parameters:
 			path: src/MysqlConnection.php
 
 		-
-			message: "#^Method Grimzy\\\\LaravelMysqlSpatial\\\\MysqlConnection\\:\\:getDefaultSchemaGrammar\\(\\) should return Illuminate\\\\Database\\\\Schema\\\\Grammars\\\\MySqlGrammar but returns Illuminate\\\\Database\\\\Grammar\\.$#"
+			message: "#^Method Limenet\\\\LaravelMysqlSpatial\\\\MysqlConnection\\:\\:getDefaultSchemaGrammar\\(\\) should return Illuminate\\\\Database\\\\Schema\\\\Grammars\\\\MySqlGrammar but returns Illuminate\\\\Database\\\\Grammar\\.$#"
 			count: 1
 			path: src/MysqlConnection.php
 
 		-
-			message: "#^Method Grimzy\\\\LaravelMysqlSpatial\\\\Schema\\\\Blueprint\\:\\:spatialIndex\\(\\) should return Illuminate\\\\Database\\\\Schema\\\\IndexDefinition but returns Illuminate\\\\Support\\\\Fluent\\.$#"
+			message: "#^Method Limenet\\\\LaravelMysqlSpatial\\\\Schema\\\\Blueprint\\:\\:spatialIndex\\(\\) should return Illuminate\\\\Database\\\\Schema\\\\IndexDefinition but returns Illuminate\\\\Support\\\\Fluent\\.$#"
 			count: 1
 			path: src/Schema/Blueprint.php
 
@@ -26,13 +26,13 @@ parameters:
 			path: src/Schema/Grammars/MySqlGrammar.php
 
 		-
-			message: "#^Method Grimzy\\\\LaravelMysqlSpatial\\\\Types\\\\Geometry\\:\\:fromWKT\\(\\) should return static\\(Grimzy\\\\LaravelMysqlSpatial\\\\Types\\\\Geometry\\) but returns Grimzy\\\\LaravelMysqlSpatial\\\\Types\\\\GeometryInterface\\.$#"
+			message: "#^Method Limenet\\\\LaravelMysqlSpatial\\\\Types\\\\Geometry\\:\\:fromWKT\\(\\) should return static\\(Limenet\\\\LaravelMysqlSpatial\\\\Types\\\\Geometry\\) but returns Limenet\\\\LaravelMysqlSpatial\\\\Types\\\\GeometryInterface\\.$#"
 			count: 1
 			path: src/Types/Geometry.php
 
 		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 2
+			count: 3
 			path: src/Types/GeometryCollection.php
 
 		-

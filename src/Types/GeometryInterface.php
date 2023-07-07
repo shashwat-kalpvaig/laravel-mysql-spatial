@@ -1,11 +1,11 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Types;
+namespace Limenet\LaravelMysqlSpatial\Types;
 
 use GeoJson\GeoJson;
 
 /**
- * @template T
+ * @template GeoType
  */
 interface GeometryInterface
 {
@@ -20,8 +20,9 @@ interface GeometryInterface
     public static function fromJson(string|GeoJson $geoJson): self;
 
     /**
-     * @return T
+     * @return GeoType
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize();
 
     public function getSrid(): int;
