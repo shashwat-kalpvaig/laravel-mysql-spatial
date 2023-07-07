@@ -80,7 +80,11 @@ class Blueprint extends IlluminateBlueprint
      */
     public function spatialIndex($columns, $name = null): \Illuminate\Support\Fluent
     {
-        return $this->indexCommand('spatial', $columns, $name);
+        return $this->indexCommand(
+            'spatial',
+            $columns,
+            $name ?: $this->createIndexName('spatial', is_array($columns) ? $columns : [$columns])
+        );
     }
 
     /**
