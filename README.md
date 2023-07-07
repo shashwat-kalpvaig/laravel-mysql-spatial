@@ -21,6 +21,12 @@ $ composer require limenet/laravel-mysql-spatial
 
 If you need support for older versions, please consider using the package `grimzy/laravel-mysql-spatial` instead.
 
+### Migration from `grimzy/laravel-mysql-spatial`
+
+1. Run `composer remove grimzy/laravel-mysql-spatial`
+2. Run `composer require limenet/laravel-mysql-spatial`
+3. Replace `Grimzy\` with `Limenet\` throughout your codebase (most likely, this only affects `use` statements)
+
 ## Quickstart
 
 ### Create a migration
