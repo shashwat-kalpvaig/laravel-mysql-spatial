@@ -1,11 +1,11 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Tests\Unit\Connectors;
+namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Connectors;
 
-use Grimzy\LaravelMysqlSpatial\Connectors\ConnectionFactory;
-use Grimzy\LaravelMysqlSpatial\MysqlConnection;
-use Grimzy\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
 use Illuminate\Container\Container;
+use Limenet\LaravelMysqlSpatial\Connectors\ConnectionFactory;
+use Limenet\LaravelMysqlSpatial\MysqlConnection;
+use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
 use Mockery;
 
 class ConnectionFactoryTest extends BaseTestCase

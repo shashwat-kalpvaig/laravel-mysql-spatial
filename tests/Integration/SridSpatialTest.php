@@ -1,14 +1,14 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Tests\Integration;
+namespace Limenet\LaravelMysqlSpatial\Tests\Integration;
 
-use Grimzy\LaravelMysqlSpatial\Tests\Integration\Models\WithSridModel;
-use Grimzy\LaravelMysqlSpatial\Types\GeometryCollection;
-use Grimzy\LaravelMysqlSpatial\Types\LineString;
-use Grimzy\LaravelMysqlSpatial\Types\MultiPoint;
-use Grimzy\LaravelMysqlSpatial\Types\MultiPolygon;
-use Grimzy\LaravelMysqlSpatial\Types\Point;
-use Grimzy\LaravelMysqlSpatial\Types\Polygon;
+use Limenet\LaravelMysqlSpatial\Tests\Integration\Models\WithSridModel;
+use Limenet\LaravelMysqlSpatial\Types\GeometryCollection;
+use Limenet\LaravelMysqlSpatial\Types\LineString;
+use Limenet\LaravelMysqlSpatial\Types\MultiPoint;
+use Limenet\LaravelMysqlSpatial\Types\MultiPolygon;
+use Limenet\LaravelMysqlSpatial\Types\Point;
+use Limenet\LaravelMysqlSpatial\Types\Polygon;
 
 class SridSpatialTest extends IntegrationBaseCase
 {

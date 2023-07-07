@@ -1,9 +1,9 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Connectors;
+namespace Limenet\LaravelMysqlSpatial\Connectors;
 
-use Grimzy\LaravelMysqlSpatial\MysqlConnection;
 use Illuminate\Database\Connectors\ConnectionFactory as IlluminateConnectionFactory;
+use Limenet\LaravelMysqlSpatial\MysqlConnection;
 use PDO;
 
 class ConnectionFactory extends IlluminateConnectionFactory

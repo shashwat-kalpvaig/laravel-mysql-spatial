@@ -48,12 +48,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Grimzy\\LaravelMysqlSpatial\\": "src"
+            "Limenet\\LaravelMysqlSpatial\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Grimzy\\LaravelMysqlSpatial\\Tests\\": "tests"
+            "Limenet\\LaravelMysqlSpatial\\Tests\\": "tests"
         }
     },
     "config": {
@@ -65,7 +65,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Grimzy\\LaravelMysqlSpatial\\SpatialServiceProvider"
+                "Limenet\\LaravelMysqlSpatial\\SpatialServiceProvider"
             ]
         }
     },

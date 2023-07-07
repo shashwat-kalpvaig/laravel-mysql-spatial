@@ -31,7 +31,7 @@ From the command line:
 php artisan make:migration create_places_table
 ```
 
-Then edit the migration you just created by adding at least one spatial data field. For Laravel versions prior to 5.5, you can use the Blueprint provided by this package (Grimzy\LaravelMysqlSpatial\Schema\Blueprint):
+Then edit the migration you just created by adding at least one spatial data field.
 
 ```php
 use Illuminate\Database\Migrations\Migration;
@@ -92,11 +92,11 @@ Then edit the model you just created. It must use the `SpatialTrait` and define 
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait;
+use Limenet\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 
 /**
- * @property \Grimzy\LaravelMysqlSpatial\Types\Point   $location
- * @property \Grimzy\LaravelMysqlSpatial\Types\Polygon $area
+ * @property \Limenet\LaravelMysqlSpatial\Types\Point   $location
+ * @property \Limenet\LaravelMysqlSpatial\Types\Polygon $area
  */
 class Place extends Model
 {
@@ -116,9 +116,9 @@ class Place extends Model
 ### Saving a model
 
 ```php
-use Grimzy\LaravelMysqlSpatial\Types\Point;
-use Grimzy\LaravelMysqlSpatial\Types\Polygon;
-use Grimzy\LaravelMysqlSpatial\Types\LineString;
+use Limenet\LaravelMysqlSpatial\Types\Point;
+use Limenet\LaravelMysqlSpatial\Types\Polygon;
+use Limenet\LaravelMysqlSpatial\Types\LineString;
 
 $place1 = new Place();
 $place1->name = 'Empire State Building';
@@ -141,9 +141,9 @@ $place1->save();
 Or if your database fields were created with a specific SRID:
 
 ```php
-use Grimzy\LaravelMysqlSpatial\Types\Point;
-use Grimzy\LaravelMysqlSpatial\Types\Polygon;
-use Grimzy\LaravelMysqlSpatial\Types\LineString;
+use Limenet\LaravelMysqlSpatial\Types\Point;
+use Limenet\LaravelMysqlSpatial\Types\Polygon;
+use Limenet\LaravelMysqlSpatial\Types\LineString;
 
 $place1 = new Place();
 $place1->name = 'Empire State Building';
@@ -179,7 +179,7 @@ $lng = $place2->location->getLng();	// -73.9878441
 
 ### Available Geometry classes
 
-| `Grimzy\LaravelMysqlSpatial\Types`                                                                                                        | OpenGIS Class                                                                                   |
+| `Limenet\LaravelMysqlSpatial\Types`                                                                                                       | OpenGIS Class                                                                                   |
 | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `Point($lat, $lng, $srid = 0)`                                                                                                            | [Point](https://dev.mysql.com/doc/refman/8.0/en/gis-class-point.html)                           |
 | `MultiPoint(Point[], $srid = 0)`                                                                                                          | [MultiPoint](https://dev.mysql.com/doc/refman/8.0/en/gis-class-multipoint.html)                 |
@@ -193,7 +193,7 @@ Check out the [Class diagram](https://user-images.githubusercontent.com/1837678/
 
 ### Using Geometry classes
 
-In order for your Eloquent Model to handle the Geometry classes, it must use the `Grimzy\LaravelMysqlSpatial\Eloquent\SpatialTrait` trait and define a `protected` property `$spatialFields`  as an array of MySQL Spatial Data Type column names (example in [Quickstart](#user-content-create-a-model)).
+In order for your Eloquent Model to handle the Geometry classes, it must use the `Limenet\LaravelMysqlSpatial\Eloquent\SpatialTrait` trait and define a `protected` property `$spatialFields`  as an array of MySQL Spatial Data Type column names (example in [Quickstart](#user-content-create-a-model)).
 
 #### IteratorAggregate and ArrayAccess
 
@@ -288,19 +288,6 @@ Available scopes:
 - `orderByDistanceSphere($geometryColumn, $geometry, $direction = 'asc')`
 
 *Note that behavior and availability of MySQL spatial analysis functions differs in each MySQL version (cf. [documentation](https://dev.mysql.com/doc/refman/8.0/en/spatial-function-reference.html)).*
-
-## Migrations
-
-For Laravel versions prior to 5.5, you can use the Blueprint provided with this package: `Grimzy\LaravelMysqlSpatial\Schema\Blueprint`.
-
-```php
-use Illuminate\Database\Migrations\Migration;
-use Grimzy\LaravelMysqlSpatial\Schema\Blueprint;
-
-class CreatePlacesTable extends Migration {
-    // ...
-}
-```
 
 ### Columns
 

@@ -1,17 +1,17 @@
 <?php
 
-namespace Grimzy\LaravelMysqlSpatial\Tests\Unit\Types;
+namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Types;
 
-use Grimzy\LaravelMysqlSpatial\Exceptions\UnknownWKTTypeException;
-use Grimzy\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
-use Grimzy\LaravelMysqlSpatial\Types\Geometry;
-use Grimzy\LaravelMysqlSpatial\Types\GeometryCollection;
-use Grimzy\LaravelMysqlSpatial\Types\LineString;
-use Grimzy\LaravelMysqlSpatial\Types\MultiLineString;
-use Grimzy\LaravelMysqlSpatial\Types\MultiPoint;
-use Grimzy\LaravelMysqlSpatial\Types\MultiPolygon;
-use Grimzy\LaravelMysqlSpatial\Types\Point;
-use Grimzy\LaravelMysqlSpatial\Types\Polygon;
+use Limenet\LaravelMysqlSpatial\Exceptions\UnknownWKTTypeException;
+use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
+use Limenet\LaravelMysqlSpatial\Types\Geometry;
+use Limenet\LaravelMysqlSpatial\Types\GeometryCollection;
+use Limenet\LaravelMysqlSpatial\Types\LineString;
+use Limenet\LaravelMysqlSpatial\Types\MultiLineString;
+use Limenet\LaravelMysqlSpatial\Types\MultiPoint;
+use Limenet\LaravelMysqlSpatial\Types\MultiPolygon;
+use Limenet\LaravelMysqlSpatial\Types\Point;
+use Limenet\LaravelMysqlSpatial\Types\Polygon;
 
 class GeometryTest extends BaseTestCase
 {
