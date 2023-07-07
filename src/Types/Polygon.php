@@ -19,11 +19,11 @@ class Polygon extends MultiLineString implements GeometryInterface
     public static function fromJson(string|GeoJson $geoJson): self
     {
         if (is_string($geoJson)) {
-            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson));
+            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson, flags: JSON_THROW_ON_ERROR));
         }
 
-        if (! is_a($geoJson, GeoJsonPolygon::class)) {
-            throw new InvalidGeoJsonException('Expected '.GeoJsonPolygon::class.', got '.get_class($geoJson));
+        if (! $geoJson instanceof GeoJsonPolygon) {
+            throw new InvalidGeoJsonException(GeoJsonPolygon::class, $geoJson::class);
         }
 
         $set = [];

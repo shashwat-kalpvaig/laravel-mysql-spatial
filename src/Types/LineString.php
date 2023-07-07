@@ -6,7 +6,7 @@ use GeoJson\GeoJson;
 use GeoJson\Geometry\LineString as GeoJsonLineString;
 use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 
-class LineString extends PointCollection
+class LineString extends PointCollection implements \Stringable
 {
     /**
      * The minimum number of items required to create this collection.
@@ -33,7 +33,7 @@ class LineString extends PointCollection
         return new static($points, $srid);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->toPairList();
     }
@@ -41,11 +41,11 @@ class LineString extends PointCollection
     public static function fromJson(string|GeoJson $geoJson): self
     {
         if (is_string($geoJson)) {
-            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson));
+            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson, null, 512, JSON_THROW_ON_ERROR));
         }
 
-        if (! is_a($geoJson, GeoJsonLineString::class)) {
-            throw new InvalidGeoJsonException('Expected '.GeoJsonLineString::class.', got '.get_class($geoJson));
+        if (! $geoJson instanceof GeoJsonLineString) {
+            throw new InvalidGeoJsonException(GeoJsonLineString::class, $geoJson::class);
         }
 
         $set = [];

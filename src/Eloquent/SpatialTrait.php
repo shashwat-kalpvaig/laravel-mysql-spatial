@@ -116,11 +116,11 @@ trait SpatialTrait
         if (property_exists($this, 'spatialFields')) {
             return $this->spatialFields;
         } else {
-            throw new SpatialFieldsNotDefinedException(__CLASS__.' has to define $spatialFields');
+            throw new SpatialFieldsNotDefinedException(self::class.' has to define $spatialFields');
         }
     }
 
-    public function isColumnAllowed($geometryColumn)
+    public function isColumnAllowed($geometryColumn): bool
     {
         if (! in_array($geometryColumn, $this->getSpatialFields())) {
             throw new SpatialFieldsNotDefinedException();

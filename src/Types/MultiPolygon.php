@@ -12,7 +12,7 @@ use RuntimeException;
  *
  * @extends GeometryCollection<Polygon>
  */
-class MultiPolygon extends GeometryCollection implements GeometryInterface
+class MultiPolygon extends GeometryCollection implements GeometryInterface, \Stringable
 {
     /**
      * The minimum number of items required to create this collection.
@@ -29,7 +29,7 @@ class MultiPolygon extends GeometryCollection implements GeometryInterface
         return sprintf('MULTIPOLYGON(%s)', (string) $this);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return implode(',', array_map(fn (Polygon $polygon) => sprintf('(%s)', (string) $polygon), $this->items));
     }
@@ -75,7 +75,7 @@ class MultiPolygon extends GeometryCollection implements GeometryInterface
 
         for ($i = 0; $i < $count; $i++) {
             if ($i % 2 !== 0) {
-                [$end, $start] = explode(',', $parts[$i]);
+                [$end, $start] = explode(',', (string) $parts[$i]);
                 $polygons[$i - 1] .= $end;
                 $polygons[++$i] = $start.$parts[$i];
             } else {
@@ -96,11 +96,11 @@ class MultiPolygon extends GeometryCollection implements GeometryInterface
     public static function fromJson(string|GeoJson $geoJson): self
     {
         if (is_string($geoJson)) {
-            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson));
+            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson, flags: JSON_THROW_ON_ERROR));
         }
 
-        if (! is_a($geoJson, GeoJsonMultiPolygon::class)) {
-            throw new InvalidGeoJsonException('Expected '.GeoJsonMultiPolygon::class.', got '.get_class($geoJson));
+        if (! $geoJson instanceof GeoJsonMultiPolygon) {
+            throw new InvalidGeoJsonException(GeoJsonMultiPolygon::class, $geoJson::class);
         }
 
         $set = [];

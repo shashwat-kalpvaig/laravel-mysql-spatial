@@ -7,7 +7,7 @@ use Doctrine\DBAL\Types\Type;
 
 class MultiLineString extends Type
 {
-    const MULTILINESTRING = 'multilinestring';
+    final public const MULTILINESTRING = 'multilinestring';
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {

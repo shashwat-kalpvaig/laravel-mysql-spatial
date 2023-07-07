@@ -7,7 +7,7 @@ use Doctrine\DBAL\Types\Type;
 
 class LineString extends Type
 {
-    const LINESTRING = 'linestring';
+    final public const LINESTRING = 'linestring';
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {

@@ -10,17 +10,11 @@ use Limenet\LaravelMysqlSpatial\Types\GeometryInterface;
 class SpatialExpression extends Expression
 {
     /**
-     * @var Geometry|GeometryInterface
-     */
-    protected $value;
-
-    /**
      * @param  Geometry|GeometryInterface  $value
      * @return void
      */
-    public function __construct($value)
+    public function __construct(protected $value)
     {
-        $this->value = $value;
     }
 
     public function getValue(Grammar $grammar)

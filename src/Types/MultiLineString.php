@@ -10,9 +10,9 @@ use RuntimeException;
 /**
  * @implements GeometryInterface<LineString>
  *
- * @extends GeometryCollection<LineString>
+ * @extends GeometryCollection<GeometryInterface>
  */
-class MultiLineString extends GeometryCollection implements GeometryInterface
+class MultiLineString extends GeometryCollection implements GeometryInterface, \Stringable
 {
     /**
      * The minimum number of items required to create this collection.
@@ -47,7 +47,7 @@ class MultiLineString extends GeometryCollection implements GeometryInterface
         return new static($lineStrings, $srid);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return implode(',', array_map(fn (LineString $lineString) => sprintf('(%s)', (string) $lineString), $this->getLineStrings()));
     }
@@ -62,11 +62,11 @@ class MultiLineString extends GeometryCollection implements GeometryInterface
     public static function fromJson(string|GeoJson $geoJson): self
     {
         if (is_string($geoJson)) {
-            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson));
+            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson, flags: JSON_THROW_ON_ERROR));
         }
 
-        if (! is_a($geoJson, GeoJsonMultiLineString::class)) {
-            throw new InvalidGeoJsonException('Expected '.GeoJsonMultiLineString::class.', got '.get_class($geoJson));
+        if (! $geoJson instanceof GeoJsonMultiLineString) {
+            throw new InvalidGeoJsonException(GeoJsonMultiLineString::class, $geoJson::class);
         }
 
         $set = [];

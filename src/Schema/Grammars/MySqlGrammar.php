@@ -8,7 +8,7 @@ use Limenet\LaravelMysqlSpatial\Schema\Blueprint;
 
 class MySqlGrammar extends IlluminateMySqlGrammar
 {
-    const COLUMN_MODIFIER_SRID = 'Srid';
+    final public const COLUMN_MODIFIER_SRID = 'Srid';
 
     public function __construct()
     {

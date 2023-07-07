@@ -9,7 +9,7 @@ use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 /**
  * @implements GeometryInterface<Point>
  */
-class MultiPoint extends PointCollection implements GeometryInterface
+class MultiPoint extends PointCollection implements GeometryInterface, \Stringable
 {
     /**
      * The minimum number of items required to create this collection.
@@ -38,7 +38,7 @@ class MultiPoint extends PointCollection implements GeometryInterface
         return new static($points, $srid);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return implode(',', array_map(fn (Point $point) => sprintf('(%s)', $point->toPair()), $this->items));
     }
@@ -46,11 +46,11 @@ class MultiPoint extends PointCollection implements GeometryInterface
     public static function fromJson(string|GeoJson $geoJson): self
     {
         if (is_string($geoJson)) {
-            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson));
+            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson, flags: JSON_THROW_ON_ERROR));
         }
 
-        if (! is_a($geoJson, GeoJsonMultiPoint::class)) {
-            throw new InvalidGeoJsonException('Expected '.GeoJsonMultiPoint::class.', got '.get_class($geoJson));
+        if (! $geoJson instanceof GeoJsonMultiPoint) {
+            throw new InvalidGeoJsonException(GeoJsonMultiPoint::class, $geoJson::class);
         }
 
         $set = [];

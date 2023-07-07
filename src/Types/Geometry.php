@@ -21,11 +21,8 @@ abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializabl
         7 => GeometryCollection::class,
     ];
 
-    protected int $srid;
-
-    public function __construct(int $srid = 0)
+    public function __construct(protected int $srid = 0)
     {
-        $this->srid = $srid;
     }
 
     public function getSrid(): int
@@ -103,7 +100,7 @@ abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializabl
     public static function fromJson(string|GeoJson $geoJson): self
     {
         if (is_string($geoJson)) {
-            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson));
+            $geoJson = GeoJson::jsonUnserialize(json_decode($geoJson, flags: JSON_THROW_ON_ERROR));
         }
 
         if ($geoJson->getType() === 'FeatureCollection') {
