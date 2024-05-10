@@ -9,9 +9,9 @@ use Illuminate\Contracts\Support\Jsonable;
 use Limenet\LaravelMysqlSpatial\Exceptions\UnknownWKBException;
 use Limenet\LaravelMysqlSpatial\Exceptions\UnknownWKTTypeException;
 
-abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializable
+abstract class Geometry implements \JsonSerializable, GeometryInterface, Jsonable
 {
-    protected static array$wkb_types = [
+    protected static array $wkb_types = [
         1 => Point::class,
         2 => LineString::class,
         3 => Polygon::class,

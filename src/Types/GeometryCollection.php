@@ -17,7 +17,7 @@ use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
  *
  * @implements GeometryInterface<FeatureCollection>
  */
-class GeometryCollection extends Geometry implements IteratorAggregate, ArrayAccess, Arrayable, Countable, GeometryInterface, \Stringable
+class GeometryCollection extends Geometry implements \Stringable, Arrayable, ArrayAccess, Countable, GeometryInterface, IteratorAggregate
 {
     /**
      * The minimum number of items required to create this collection.

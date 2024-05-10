@@ -9,7 +9,7 @@ use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 /**
  * @implements GeometryInterface<GeoJsonPoint>
  */
-class Point extends Geometry implements GeometryInterface, \Stringable
+class Point extends Geometry implements \Stringable, GeometryInterface
 {
     public function __construct(protected float $lat, protected float $lng, ?int $srid = 0)
     {
@@ -64,8 +64,7 @@ class Point extends Geometry implements GeometryInterface, \Stringable
     }
 
     /**
-     * @param $geoJson  \GeoJson\Feature\Feature|string
-     * @return \Limenet\LaravelMysqlSpatial\Types\Point
+     * @param  $geoJson  \GeoJson\Feature\Feature|string
      */
     public static function fromJson(string|GeoJson $geoJson): self
     {

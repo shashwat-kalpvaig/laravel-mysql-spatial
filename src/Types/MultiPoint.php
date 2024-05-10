@@ -9,7 +9,7 @@ use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 /**
  * @implements GeometryInterface<Point>
  */
-class MultiPoint extends PointCollection implements GeometryInterface, \Stringable
+class MultiPoint extends PointCollection implements \Stringable, GeometryInterface
 {
     /**
      * The minimum number of items required to create this collection.

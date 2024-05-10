@@ -12,7 +12,7 @@ use RuntimeException;
  *
  * @extends GeometryCollection<Polygon>
  */
-class MultiPolygon extends GeometryCollection implements GeometryInterface, \Stringable
+class MultiPolygon extends GeometryCollection implements \Stringable, GeometryInterface
 {
     /**
      * The minimum number of items required to create this collection.

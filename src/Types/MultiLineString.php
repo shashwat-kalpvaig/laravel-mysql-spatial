@@ -12,7 +12,7 @@ use RuntimeException;
  *
  * @extends GeometryCollection<GeometryInterface>
  */
-class MultiLineString extends GeometryCollection implements GeometryInterface, \Stringable
+class MultiLineString extends GeometryCollection implements \Stringable, GeometryInterface
 {
     /**
      * The minimum number of items required to create this collection.
