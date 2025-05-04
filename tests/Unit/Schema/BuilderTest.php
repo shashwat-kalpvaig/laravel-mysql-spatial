@@ -1,11 +1,11 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Schema;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\Schema;
 
-use Limenet\LaravelMysqlSpatial\MysqlConnection;
-use Limenet\LaravelMysqlSpatial\Schema\Blueprint;
-use Limenet\LaravelMysqlSpatial\Schema\Builder;
-use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase as UnitBaseTestCase;
+use ShashwatKalpvaig\LaravelMysqlSpatial\MysqlConnection;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Blueprint;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Builder;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\BaseTestCase as UnitBaseTestCase;
 use Mockery;
 
 class BuilderTest extends UnitBaseTestCase

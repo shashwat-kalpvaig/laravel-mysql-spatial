@@ -1,6 +1,6 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Integration\Eloquent;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration\Eloquent;
 
 class TestRelatedModel extends TestModel
 {

@@ -1,4 +1,4 @@
-# Laravel MySQL Spatial extension
+# Laravel MySQL Spatial extension For Laravel 11
 
 [![Packagist](https://img.shields.io/packagist/dt/limenet/laravel-mysql-spatial.svg?style=flat-square)](https://packagist.org/packages/limenet/laravel-mysql-spatial)
 [![license](https://img.shields.io/github/license/limenet/laravel-mysql-spatial.svg?style=flat-square)](LICENSE)
@@ -21,11 +21,11 @@ $ composer require limenet/laravel-mysql-spatial
 
 If you need support for older versions, please consider using the package `grimzy/laravel-mysql-spatial` instead.
 
-### Migration from `grimzy/laravel-mysql-spatial`
+### Migration from `shashwat-kalpvaig/laravel-mysql-spatial`
 
 1. Run `composer remove grimzy/laravel-mysql-spatial`
-2. Run `composer require limenet/laravel-mysql-spatial`
-3. Replace `Grimzy\` with `Limenet\` throughout your codebase (most likely, this only affects `use` statements)
+2. Run `composer require shashwat-kalpvaig/laravel-mysql-spatial`
+3. Replace `Grimzy\` with `ShashwatKalpvaig\` throughout your codebase (most likely, this only affects `use` statements)
 
 ## Quickstart
 
@@ -98,11 +98,11 @@ Then edit the model you just created. It must use the `SpatialTrait` and define 
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Limenet\LaravelMysqlSpatial\Eloquent\SpatialTrait;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 
 /**
- * @property \Limenet\LaravelMysqlSpatial\Types\Point   $location
- * @property \Limenet\LaravelMysqlSpatial\Types\Polygon $area
+ * @property \ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point   $location
+ * @property \ShashwatKalpvaig\LaravelMysqlSpatial\Types\Polygon $area
  */
 class Place extends Model
 {
@@ -122,9 +122,9 @@ class Place extends Model
 ### Saving a model
 
 ```php
-use Limenet\LaravelMysqlSpatial\Types\Point;
-use Limenet\LaravelMysqlSpatial\Types\Polygon;
-use Limenet\LaravelMysqlSpatial\Types\LineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Polygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString;
 
 $place1 = new Place();
 $place1->name = 'Empire State Building';
@@ -147,9 +147,9 @@ $place1->save();
 Or if your database fields were created with a specific SRID:
 
 ```php
-use Limenet\LaravelMysqlSpatial\Types\Point;
-use Limenet\LaravelMysqlSpatial\Types\Polygon;
-use Limenet\LaravelMysqlSpatial\Types\LineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Polygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString;
 
 $place1 = new Place();
 $place1->name = 'Empire State Building';
@@ -185,7 +185,7 @@ $lng = $place2->location->getLng();	// -73.9878441
 
 ### Available Geometry classes
 
-| `Limenet\LaravelMysqlSpatial\Types`                                                                                                       | OpenGIS Class                                                                                   |
+| `ShashwatKalpvaig\LaravelMysqlSpatial\Types`                                                                                                       | OpenGIS Class                                                                                   |
 | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `Point($lat, $lng, $srid = 0)`                                                                                                            | [Point](https://dev.mysql.com/doc/refman/8.0/en/gis-class-point.html)                           |
 | `MultiPoint(Point[], $srid = 0)`                                                                                                          | [MultiPoint](https://dev.mysql.com/doc/refman/8.0/en/gis-class-multipoint.html)                 |
@@ -199,7 +199,7 @@ Check out the [Class diagram](https://user-images.githubusercontent.com/1837678/
 
 ### Using Geometry classes
 
-In order for your Eloquent Model to handle the Geometry classes, it must use the `Limenet\LaravelMysqlSpatial\Eloquent\SpatialTrait` trait and define a `protected` property `$spatialFields`  as an array of MySQL Spatial Data Type column names (example in [Quickstart](#user-content-create-a-model)).
+In order for your Eloquent Model to handle the Geometry classes, it must use the `ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent\SpatialTrait` trait and define a `protected` property `$spatialFields`  as an array of MySQL Spatial Data Type column names (example in [Quickstart](#user-content-create-a-model)).
 
 #### IteratorAggregate and ArrayAccess
 

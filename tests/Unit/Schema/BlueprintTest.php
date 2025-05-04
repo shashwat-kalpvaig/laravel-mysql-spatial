@@ -1,15 +1,15 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Schema;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\Schema;
 
 use Illuminate\Database\Schema\ColumnDefinition;
-use Limenet\LaravelMysqlSpatial\Schema\Blueprint;
-use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase as UnitBaseTestCase;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Blueprint;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\BaseTestCase as UnitBaseTestCase;
 use Mockery;
 
 class BlueprintTest extends UnitBaseTestCase
 {
-    protected \Limenet\LaravelMysqlSpatial\Schema\Blueprint $blueprint;
+    protected \ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Blueprint $blueprint;
 
     public function setUp(): void
     {

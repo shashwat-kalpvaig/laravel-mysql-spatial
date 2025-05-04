@@ -1,6 +1,6 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Doctrine;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;

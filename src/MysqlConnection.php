@@ -1,11 +1,11 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial;
 
 use Doctrine\DBAL\Types\Type as DoctrineType;
 use Illuminate\Database\MySqlConnection as IlluminateMySqlConnection;
-use Limenet\LaravelMysqlSpatial\Schema\Builder;
-use Limenet\LaravelMysqlSpatial\Schema\Grammars\MySqlGrammar;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Builder;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Grammars\MySqlGrammar;
 
 class MysqlConnection extends IlluminateMySqlConnection
 {

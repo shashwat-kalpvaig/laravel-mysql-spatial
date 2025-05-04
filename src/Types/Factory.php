@@ -1,6 +1,6 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Types;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Types;
 
 class Factory implements \GeoIO\Factory
 {

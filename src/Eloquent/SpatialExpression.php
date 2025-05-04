@@ -1,11 +1,11 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Eloquent;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent;
 
 use Illuminate\Database\Grammar;
 use Illuminate\Database\Query\Expression;
-use Limenet\LaravelMysqlSpatial\Types\Geometry;
-use Limenet\LaravelMysqlSpatial\Types\GeometryInterface;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Geometry;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\GeometryInterface;
 
 class SpatialExpression extends Expression
 {

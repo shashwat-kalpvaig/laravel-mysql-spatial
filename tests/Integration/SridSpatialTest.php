@@ -1,14 +1,14 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Integration;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration;
 
-use Limenet\LaravelMysqlSpatial\Tests\Integration\Models\WithSridModel;
-use Limenet\LaravelMysqlSpatial\Types\GeometryCollection;
-use Limenet\LaravelMysqlSpatial\Types\LineString;
-use Limenet\LaravelMysqlSpatial\Types\MultiPoint;
-use Limenet\LaravelMysqlSpatial\Types\MultiPolygon;
-use Limenet\LaravelMysqlSpatial\Types\Point;
-use Limenet\LaravelMysqlSpatial\Types\Polygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration\Models\WithSridModel;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\GeometryCollection;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPoint;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPolygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Polygon;
 
 class SridSpatialTest extends IntegrationBaseCase
 {

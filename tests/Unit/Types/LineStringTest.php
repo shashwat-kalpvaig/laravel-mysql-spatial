@@ -1,10 +1,10 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Types;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\Types;
 
-use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
-use Limenet\LaravelMysqlSpatial\Types\LineString;
-use Limenet\LaravelMysqlSpatial\Types\Point;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point;
 
 class LineStringTest extends BaseTestCase
 {
@@ -49,7 +49,7 @@ class LineStringTest extends BaseTestCase
     public function testInvalidGeoJsonException()
     {
         $this->assertException(
-            \Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException::class,
+            \ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException::class,
             sprintf('Expected %s, got %s', \GeoJson\Geometry\LineString::class, \GeoJson\Geometry\Point::class)
         );
         LineString::fromJson('{"type":"Point","coordinates":[3.4,1.2]}');

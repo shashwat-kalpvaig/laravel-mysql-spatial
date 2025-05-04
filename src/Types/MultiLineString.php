@@ -1,10 +1,10 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Types;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Types;
 
 use GeoJson\GeoJson;
 use GeoJson\Geometry\MultiLineString as GeoJsonMultiLineString;
-use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 use RuntimeException;
 
 /**

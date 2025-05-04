@@ -1,12 +1,12 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Integration;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration;
 
 use Illuminate\Support\Facades\DB;
 use Laravel\BrowserKitTesting\TestCase as BaseTestCase;
-use Limenet\LaravelMysqlSpatial\SpatialServiceProvider;
-use Limenet\LaravelMysqlSpatial\Tests\Integration\Migrations\CreateTables;
-use Limenet\LaravelMysqlSpatial\Tests\Integration\Migrations\UpdateTables;
+use ShashwatKalpvaig\LaravelMysqlSpatial\SpatialServiceProvider;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration\Migrations\CreateTables;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration\Migrations\UpdateTables;
 
 abstract class IntegrationBaseCase extends BaseTestCase
 {

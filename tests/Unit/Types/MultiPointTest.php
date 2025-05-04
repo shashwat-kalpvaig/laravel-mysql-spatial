@@ -1,11 +1,11 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Types;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\Types;
 
 use InvalidArgumentException;
-use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
-use Limenet\LaravelMysqlSpatial\Types\MultiPoint;
-use Limenet\LaravelMysqlSpatial\Types\Point;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPoint;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point;
 
 class MultiPointTest extends BaseTestCase
 {
@@ -47,7 +47,7 @@ class MultiPointTest extends BaseTestCase
     public function testInvalidGeoJsonException()
     {
         $this->assertException(
-            \Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException::class,
+            \ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException::class,
             sprintf('Expected %s, got %s', \GeoJson\Geometry\MultiPoint::class, \GeoJson\Geometry\Point::class)
         );
         MultiPoint::fromJson('{"type":"Point","coordinates":[3.4,1.2]}');
@@ -67,7 +67,7 @@ class MultiPointTest extends BaseTestCase
     {
         $this->assertException(
             InvalidArgumentException::class,
-            'Limenet\LaravelMysqlSpatial\Types\MultiPoint must contain at least 1 entry'
+            'ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPoint must contain at least 1 entry'
         );
         $multipoint = new MultiPoint([]);
     }
@@ -76,7 +76,7 @@ class MultiPointTest extends BaseTestCase
     {
         $this->assertException(
             InvalidArgumentException::class,
-            'Limenet\LaravelMysqlSpatial\Types\MultiPoint must be a collection of Limenet\LaravelMysqlSpatial\Types\Point'
+            'ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPoint must be a collection of ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point'
         );
         $multipoint = new MultiPoint([
             new Point(0, 0),
@@ -102,7 +102,7 @@ class MultiPointTest extends BaseTestCase
         // assert invalid
         $this->assertException(
             InvalidArgumentException::class,
-            'Limenet\LaravelMysqlSpatial\Types\MultiPoint must be a collection of Limenet\LaravelMysqlSpatial\Types\Point'
+            'ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPoint must be a collection of ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point'
         );
         $multipoint[] = 1;
     }

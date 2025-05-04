@@ -1,9 +1,9 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Eloquent;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
-use Limenet\LaravelMysqlSpatial\Types\GeometryInterface;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\GeometryInterface;
 
 class Builder extends EloquentBuilder
 {

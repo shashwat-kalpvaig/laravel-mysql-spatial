@@ -1,6 +1,6 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit;
 
 use Mockery;
 use Orchestra\Testbench\TestCase as Orchestra;

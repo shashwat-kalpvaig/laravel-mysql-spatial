@@ -1,18 +1,18 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Eloquent;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\Query\Grammars\MySqlGrammar;
-use Limenet\LaravelMysqlSpatial\Eloquent\Builder;
-use Limenet\LaravelMysqlSpatial\Eloquent\SpatialExpression;
-use Limenet\LaravelMysqlSpatial\Eloquent\SpatialTrait;
-use Limenet\LaravelMysqlSpatial\MysqlConnection;
-use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase as UnitBaseTestCase;
-use Limenet\LaravelMysqlSpatial\Types\LineString;
-use Limenet\LaravelMysqlSpatial\Types\Point;
-use Limenet\LaravelMysqlSpatial\Types\Polygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent\Builder;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent\SpatialExpression;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent\SpatialTrait;
+use ShashwatKalpvaig\LaravelMysqlSpatial\MysqlConnection;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\BaseTestCase as UnitBaseTestCase;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Polygon;
 use Mockery;
 
 class BuilderTest extends UnitBaseTestCase

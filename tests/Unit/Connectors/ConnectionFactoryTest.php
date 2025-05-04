@@ -1,11 +1,11 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Connectors;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\Connectors;
 
 use Illuminate\Container\Container;
-use Limenet\LaravelMysqlSpatial\Connectors\ConnectionFactory;
-use Limenet\LaravelMysqlSpatial\MysqlConnection;
-use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Connectors\ConnectionFactory;
+use ShashwatKalpvaig\LaravelMysqlSpatial\MysqlConnection;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
 use Mockery;
 
 class ConnectionFactoryTest extends BaseTestCase

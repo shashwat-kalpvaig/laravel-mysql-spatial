@@ -1,13 +1,13 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Types;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Types;
 
 use GeoIO\WKB\Parser\Parser;
 use GeoJson\Feature\Feature;
 use GeoJson\GeoJson;
 use Illuminate\Contracts\Support\Jsonable;
-use Limenet\LaravelMysqlSpatial\Exceptions\UnknownWKBException;
-use Limenet\LaravelMysqlSpatial\Exceptions\UnknownWKTTypeException;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\UnknownWKBException;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\UnknownWKTTypeException;
 
 abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializable
 {
@@ -112,7 +112,7 @@ abstract class Geometry implements GeometryInterface, Jsonable, \JsonSerializabl
             $geoJson = $geoJson->getGeometry();
         }
 
-        $type = '\Limenet\LaravelMysqlSpatial\Types\\'.$geoJson?->getType();
+        $type = '\ShashwatKalpvaig\LaravelMysqlSpatial\Types\\'.$geoJson?->getType();
 
         return $type::fromJson($geoJson);
     }

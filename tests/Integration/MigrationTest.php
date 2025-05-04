@@ -1,10 +1,10 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Integration;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration;
 
 use Illuminate\Support\Facades\DB;
-use Limenet\LaravelMysqlSpatial\Tests\Integration\Migrations\CreateTables;
-use Limenet\LaravelMysqlSpatial\Tests\Integration\Migrations\UpdateTables;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration\Migrations\CreateTables;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration\Migrations\UpdateTables;
 
 class MigrationTest extends IntegrationBaseCase
 {

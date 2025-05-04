@@ -1,15 +1,15 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Integration;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration;
 
-use Limenet\LaravelMysqlSpatial\Tests\Integration\Models\GeometryModel;
-use Limenet\LaravelMysqlSpatial\Tests\Integration\Models\NoSpatialFieldsModel;
-use Limenet\LaravelMysqlSpatial\Types\GeometryCollection;
-use Limenet\LaravelMysqlSpatial\Types\LineString;
-use Limenet\LaravelMysqlSpatial\Types\MultiPoint;
-use Limenet\LaravelMysqlSpatial\Types\MultiPolygon;
-use Limenet\LaravelMysqlSpatial\Types\Point;
-use Limenet\LaravelMysqlSpatial\Types\Polygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration\Models\GeometryModel;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration\Models\NoSpatialFieldsModel;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\GeometryCollection;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPoint;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPolygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Polygon;
 
 class SpatialTest extends IntegrationBaseCase
 {
@@ -24,7 +24,7 @@ class SpatialTest extends IntegrationBaseCase
         $geo->geometry = new Point(1, 2);
         $geo->save();
 
-        $this->assertException(\Limenet\LaravelMysqlSpatial\Exceptions\SpatialFieldsNotDefinedException::class);
+        $this->assertException(\ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\SpatialFieldsNotDefinedException::class);
         NoSpatialFieldsModel::all();
     }
 
@@ -245,7 +245,7 @@ class SpatialTest extends IntegrationBaseCase
         $loc = new GeometryModel();
         $loc->location = new Point(1, 1);
 
-        $this->assertException(\Limenet\LaravelMysqlSpatial\Exceptions\UnknownSpatialFunctionException::class);
+        $this->assertException(\ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\UnknownSpatialFunctionException::class);
         GeometryModel::orderBySpatial('location', $loc->location, 'does-not-exist')->get();
     }
 
@@ -319,9 +319,9 @@ class SpatialTest extends IntegrationBaseCase
     //public function testBounding() {
     //    $point = new Point(0, 0);
     //
-    //    $linestring1 = \Limenet\LaravelMysqlSpatial\Types\LineString::fromWkt("LINESTRING(1 1, 2 2)");
-    //    $linestring2 = \Limenet\LaravelMysqlSpatial\Types\LineString::fromWkt("LINESTRING(20 20, 24 24)");
-    //    $linestring3 = \Limenet\LaravelMysqlSpatial\Types\LineString::fromWkt("LINESTRING(0 10, 10 10)");
+    //    $linestring1 = \ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString::fromWkt("LINESTRING(1 1, 2 2)");
+    //    $linestring2 = \ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString::fromWkt("LINESTRING(20 20, 24 24)");
+    //    $linestring3 = \ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString::fromWkt("LINESTRING(0 10, 10 10)");
     //
     //    $geo1 = new GeometryModel();
     //    $geo1->location = $point;

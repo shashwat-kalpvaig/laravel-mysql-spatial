@@ -1,9 +1,9 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit;
 
-use Limenet\LaravelMysqlSpatial\MysqlConnection;
-use Limenet\LaravelMysqlSpatial\Schema\Builder;
+use ShashwatKalpvaig\LaravelMysqlSpatial\MysqlConnection;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Builder;
 use PHPUnit\Framework\TestCase;
 
 class MysqlConnectionTest extends TestCase

@@ -1,12 +1,12 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Types;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\Types;
 
 use InvalidArgumentException;
-use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
-use Limenet\LaravelMysqlSpatial\Types\LineString;
-use Limenet\LaravelMysqlSpatial\Types\MultiLineString;
-use Limenet\LaravelMysqlSpatial\Types\Point;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiLineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point;
 
 class MultiLineStringTest extends BaseTestCase
 {
@@ -50,7 +50,7 @@ class MultiLineStringTest extends BaseTestCase
     public function testInvalidGeoJsonException()
     {
         $this->assertException(
-            \Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException::class,
+            \ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException::class,
             sprintf('Expected %s, got %s', \GeoJson\Geometry\MultiLineString::class, \GeoJson\Geometry\Point::class)
         );
         MultiLineString::fromJson('{"type":"Point","coordinates":[3.4,1.2]}');
@@ -68,7 +68,7 @@ class MultiLineStringTest extends BaseTestCase
     {
         $this->assertException(
             InvalidArgumentException::class,
-            'Limenet\LaravelMysqlSpatial\Types\MultiLineString must contain at least 1 entry'
+            'ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiLineString must contain at least 1 entry'
         );
         $multilinestring = new MultiLineString([]);
     }
@@ -77,7 +77,7 @@ class MultiLineStringTest extends BaseTestCase
     {
         $this->assertException(
             InvalidArgumentException::class,
-            'Limenet\LaravelMysqlSpatial\Types\MultiLineString must be a collection of Limenet\LaravelMysqlSpatial\Types\LineString'
+            'ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiLineString must be a collection of ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString'
         );
         $multilinestring = new MultiLineString([
             new LineString([new Point(0, 0), new Point(1, 1)]),
@@ -113,7 +113,7 @@ class MultiLineStringTest extends BaseTestCase
         // assert invalid
         $this->assertException(
             InvalidArgumentException::class,
-            'Limenet\LaravelMysqlSpatial\Types\MultiLineString must be a collection of Limenet\LaravelMysqlSpatial\Types\LineString'
+            'ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiLineString must be a collection of ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString'
         );
         $multilinestring[] = 1;
     }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Connectors;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Connectors;
 
 use Illuminate\Database\Connectors\ConnectionFactory as IlluminateConnectionFactory;
-use Limenet\LaravelMysqlSpatial\MysqlConnection;
+use ShashwatKalpvaig\LaravelMysqlSpatial\MysqlConnection;
 use PDO;
 
 class ConnectionFactory extends IlluminateConnectionFactory

@@ -1,13 +1,13 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Types;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\Types;
 
 use InvalidArgumentException;
-use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
-use Limenet\LaravelMysqlSpatial\Types\LineString;
-use Limenet\LaravelMysqlSpatial\Types\MultiPolygon;
-use Limenet\LaravelMysqlSpatial\Types\Point;
-use Limenet\LaravelMysqlSpatial\Types\Polygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\LineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPolygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Point;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Polygon;
 
 class MultiPolygonTest extends BaseTestCase
 {
@@ -70,7 +70,7 @@ class MultiPolygonTest extends BaseTestCase
     public function testInvalidGeoJsonException()
     {
         $this->assertException(
-            \Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException::class,
+            \ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException::class,
             sprintf('Expected %s, got %s', \GeoJson\Geometry\MultiPolygon::class, \GeoJson\Geometry\Point::class)
         );
         MultiPolygon::fromJson('{"type":"Point","coordinates":[3.4,1.2]}');
@@ -86,7 +86,7 @@ class MultiPolygonTest extends BaseTestCase
     {
         $this->assertException(
             InvalidArgumentException::class,
-            'Limenet\LaravelMysqlSpatial\Types\MultiPolygon must contain at least 1 entry'
+            'ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPolygon must contain at least 1 entry'
         );
         $multipolygon = new MultiPolygon([]);
     }
@@ -95,7 +95,7 @@ class MultiPolygonTest extends BaseTestCase
     {
         $this->assertException(
             InvalidArgumentException::class,
-            'Limenet\LaravelMysqlSpatial\Types\MultiPolygon must be a collection of Limenet\LaravelMysqlSpatial\Types\Polygon'
+            'ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPolygon must be a collection of ShashwatKalpvaig\LaravelMysqlSpatial\Types\Polygon'
         );
         $multipolygon = new MultiPolygon([
             $this->getPolygon1(),
@@ -122,7 +122,7 @@ class MultiPolygonTest extends BaseTestCase
         // assert invalid
         $this->assertException(
             InvalidArgumentException::class,
-            'Limenet\LaravelMysqlSpatial\Types\MultiPolygon must be a collection of Limenet\LaravelMysqlSpatial\Types\Polygon'
+            'ShashwatKalpvaig\LaravelMysqlSpatial\Types\MultiPolygon must be a collection of ShashwatKalpvaig\LaravelMysqlSpatial\Types\Polygon'
         );
         $multipolygon[] = 1;
     }

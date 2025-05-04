@@ -1,10 +1,10 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Schema\Grammars;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Grammars;
 
 use Illuminate\Database\Schema\Grammars\MySqlGrammar as IlluminateMySqlGrammar;
 use Illuminate\Support\Fluent;
-use Limenet\LaravelMysqlSpatial\Schema\Blueprint;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Blueprint;
 
 class MySqlGrammar extends IlluminateMySqlGrammar
 {

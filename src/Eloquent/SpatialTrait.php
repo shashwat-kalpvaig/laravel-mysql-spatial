@@ -1,13 +1,13 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Eloquent;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
-use Limenet\LaravelMysqlSpatial\Exceptions\SpatialFieldsNotDefinedException;
-use Limenet\LaravelMysqlSpatial\Exceptions\UnknownSpatialFunctionException;
-use Limenet\LaravelMysqlSpatial\Exceptions\UnknownSpatialRelationFunction;
-use Limenet\LaravelMysqlSpatial\Types\Geometry;
-use Limenet\LaravelMysqlSpatial\Types\GeometryInterface;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\SpatialFieldsNotDefinedException;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\UnknownSpatialFunctionException;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\UnknownSpatialRelationFunction;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\Geometry;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Types\GeometryInterface;
 
 /**
  * Trait SpatialTrait.
@@ -62,7 +62,7 @@ trait SpatialTrait
      * Create a new Eloquent query builder for the model.
      *
      * @param  \Illuminate\Database\Query\Builder  $query
-     * @return \Limenet\LaravelMysqlSpatial\Eloquent\Builder
+     * @return \ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent\Builder
      */
     public function newEloquentBuilder($query)
     {

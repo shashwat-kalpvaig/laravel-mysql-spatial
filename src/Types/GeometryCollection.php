@@ -1,6 +1,6 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Types;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Types;
 
 use ArrayAccess;
 use ArrayIterator;
@@ -10,7 +10,7 @@ use GeoJson\GeoJson;
 use Illuminate\Contracts\Support\Arrayable;
 use InvalidArgumentException;
 use IteratorAggregate;
-use Limenet\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions\InvalidGeoJsonException;
 
 /**
  * @template GeoType of GeometryInterface

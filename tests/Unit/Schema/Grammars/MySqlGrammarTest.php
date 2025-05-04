@@ -1,11 +1,11 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Unit\Schema\Grammars;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\Schema\Grammars;
 
-use Limenet\LaravelMysqlSpatial\MysqlConnection;
-use Limenet\LaravelMysqlSpatial\Schema\Blueprint;
-use Limenet\LaravelMysqlSpatial\Schema\Grammars\MySqlGrammar;
-use Limenet\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
+use ShashwatKalpvaig\LaravelMysqlSpatial\MysqlConnection;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Blueprint;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Grammars\MySqlGrammar;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Unit\BaseTestCase;
 use Mockery;
 
 class MySqlGrammarTest extends BaseTestCase

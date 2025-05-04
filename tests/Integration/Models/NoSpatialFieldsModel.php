@@ -1,12 +1,12 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Integration\Models;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Limenet\LaravelMysqlSpatial\Eloquent\SpatialTrait;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 
 /**
- * @property \Limenet\LaravelMysqlSpatial\Types\Geometry geometry
+ * @property \ShashwatKalpvaig\LaravelMysqlSpatial\Types\Geometry geometry
  */
 class NoSpatialFieldsModel extends Model
 {

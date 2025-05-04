@@ -1,12 +1,12 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Tests\Integration\Eloquent;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Tests\Integration\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 
 class TestModel extends Model
 {
-    use \Limenet\LaravelMysqlSpatial\Eloquent\SpatialTrait;
+    use \ShashwatKalpvaig\LaravelMysqlSpatial\Eloquent\SpatialTrait;
 
     protected $spatialFields = ['point'];   // TODO: only required when fetching, not saving
 

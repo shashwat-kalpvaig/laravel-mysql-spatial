@@ -1,19 +1,19 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial;
 
 use Doctrine\DBAL\Types\Type as DoctrineType;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Database\DatabaseServiceProvider;
-use Limenet\LaravelMysqlSpatial\Connectors\ConnectionFactory;
-use Limenet\LaravelMysqlSpatial\Doctrine\Geometry;
-use Limenet\LaravelMysqlSpatial\Doctrine\GeometryCollection;
-use Limenet\LaravelMysqlSpatial\Doctrine\LineString;
-use Limenet\LaravelMysqlSpatial\Doctrine\MultiLineString;
-use Limenet\LaravelMysqlSpatial\Doctrine\MultiPoint;
-use Limenet\LaravelMysqlSpatial\Doctrine\MultiPolygon;
-use Limenet\LaravelMysqlSpatial\Doctrine\Point;
-use Limenet\LaravelMysqlSpatial\Doctrine\Polygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Connectors\ConnectionFactory;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Doctrine\Geometry;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Doctrine\GeometryCollection;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Doctrine\LineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Doctrine\MultiLineString;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Doctrine\MultiPoint;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Doctrine\MultiPolygon;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Doctrine\Point;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Doctrine\Polygon;
 
 /**
  * Class DatabaseServiceProvider.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Limenet\LaravelMysqlSpatial\Exceptions;
+namespace ShashwatKalpvaig\LaravelMysqlSpatial\Exceptions;
 
 class UnknownSpatialFunctionException extends \RuntimeException
 {
