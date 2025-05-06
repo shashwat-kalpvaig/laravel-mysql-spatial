@@ -35,17 +35,18 @@
     "conflict": {},
     "require-dev": {
         "driftingly/rector-laravel": "^0.21.0",
+        "larastan/larastan": "^3.4",
         "laravel/browser-kit-testing": "^7.2.4",
-        "laravel/laravel" : "^12.0.7",
+        "laravel/laravel": "^12.0.7",
         "laravel/pint": "^1.22.0",
         "nunomaduro/collision": "^8.8",
+        "orchestra/testbench": "^10.2.2",
         "phpstan/extension-installer": "^1.4.3",
-        "phpunit/phpunit": "^11.5.19",
-        "larastan/larastan": "^3.4",
         "phpstan/phpstan": "^2.1.14",
-        "phpstan/phpstan-phpunit": "^2.0.6",
         "phpstan/phpstan-deprecation-rules": "^2.0.2",
-        "orchestra/testbench": "^10.2.2"
+        "phpstan/phpstan-phpunit": "^2.0.6",
+        "phpunit/phpunit": "^11.5.19",
+        "rector/rector": "^2.0"
     },
     "autoload": {
         "psr-4": {
