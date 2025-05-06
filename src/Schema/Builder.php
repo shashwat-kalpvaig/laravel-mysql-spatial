@@ -4,6 +4,7 @@ namespace ShashwatKalpvaig\LaravelMysqlSpatial\Schema;
 
 use Closure;
 use Illuminate\Database\Schema\MySqlBuilder;
+use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Blueprint; 
 
 class Builder extends MySqlBuilder
 {
@@ -14,8 +15,8 @@ class Builder extends MySqlBuilder
      * @param  Closure  $callback
      * @return Blueprint
      */
-    protected function createBlueprint($table, Closure $callback = null)
+    public function createBlueprint($table, Closure $callback = null)
     {
-        return new Blueprint($table, $callback);
+        return new Blueprint($this->connection, $table, $callback);
     }
 }
