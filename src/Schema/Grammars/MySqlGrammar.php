@@ -2,6 +2,7 @@
 
 namespace ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Grammars;
 
+use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Grammars\MySqlGrammar as IlluminateMySqlGrammar;
 use Illuminate\Support\Fluent;
 use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Blueprint;
@@ -10,12 +11,13 @@ class MySqlGrammar extends IlluminateMySqlGrammar
 {
     final public const COLUMN_MODIFIER_SRID = 'Srid';
 
-    public function __construct()
+    public function __construct(Connection $connection)
     {
         // Enable SRID as a column modifier
         if (! in_array(self::COLUMN_MODIFIER_SRID, $this->modifiers)) {
             $this->modifiers[] = self::COLUMN_MODIFIER_SRID;
         }
+        parent::__construct($connection);
     }
 
     /**

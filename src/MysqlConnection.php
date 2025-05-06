@@ -4,6 +4,7 @@ namespace ShashwatKalpvaig\LaravelMysqlSpatial;
 
 use Doctrine\DBAL\Types\Type as DoctrineType;
 use Illuminate\Database\MySqlConnection as IlluminateMySqlConnection;
+use Illuminate\Database\Schema\Grammars\Grammar;
 use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Builder;
 use ShashwatKalpvaig\LaravelMysqlSpatial\Schema\Grammars\MySqlGrammar;
 
@@ -36,12 +37,9 @@ class MysqlConnection extends IlluminateMySqlConnection
     /**
      * Get the default schema grammar instance.
      */
-    protected function getDefaultSchemaGrammar(): \Illuminate\Database\Schema\Grammars\Grammar
+    protected function getDefaultSchemaGrammar(): Grammar
     {
-        $grammar = new MySqlGrammar($this); // pass the connection into the constructor
-        $this->setSchemaGrammar($grammar);  // manually set it if needed
-
-        return $grammar;
+        return new MySqlGrammar($this); 
     }
 
 
