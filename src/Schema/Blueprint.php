@@ -77,7 +77,7 @@ class Blueprint extends IlluminateBlueprint
      * @param  string|array  $columns
      * @param  string  $name
      */
-    public function spatialIndex($columns, $name = null): \Illuminate\Support\Fluent
+    public function spatialIndex($columns, $name = null, $operatorClass = null): \Illuminate\Support\Fluent
     {
         return $this->indexCommand(
             'spatial',
