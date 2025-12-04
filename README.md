@@ -1,11 +1,11 @@
-# Laravel MySQL Spatial extension For Laravel 11
+# Laravel MySQL Spatial extension For Laravel 12.x
 
 [![Packagist](https://img.shields.io/packagist/dt/limenet/laravel-mysql-spatial.svg?style=flat-square)](https://packagist.org/packages/limenet/laravel-mysql-spatial)
 [![license](https://img.shields.io/github/license/limenet/laravel-mysql-spatial.svg?style=flat-square)](LICENSE)
 
 Laravel package to easily work with [MySQL Spatial Data Types](https://dev.mysql.com/doc/refman/8.0/en/spatial-type-overview.html) and [MySQL Spatial Functions](https://dev.mysql.com/doc/refman/8.0/en/spatial-function-reference.html).
 
-Please check the documentation for your MySQL version. MySQL's Extension for Spatial Data was added in MySQL 5.5 but many Spatial Functions were changed in 5.6 and 5.7.
+Support is only for Mysql 8.x + , MariaDB is not supported.
 
 **This package is a fork of https://github.com/grimzy/laravel-mysql-spatial and virtually all code was written by the contributors to that repo. Thank you!**
 
